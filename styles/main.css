@@ -38,8 +38,12 @@ section {
     box-shadow: 0 2px 24px rgba(35,39,47,0.08);
 }
 
+/* CONTACT BOX SECTION: Style the contact form and section below */
 .about, .projects, .contact {
     margin-bottom: 48px;
+    #contact form{
+
+    }
 }
 
 .project-grid {
