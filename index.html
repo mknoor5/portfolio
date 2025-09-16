@@ -4,13 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <style>
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                z-index: 200;
+            }
+            .hamburger span {
+                display: block;
+                width: 28px;
+                height: 4px;
+                margin: 4px 0;
+                background: #fff;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+            @media (max-width: 700px) {
+                .hamburger { display: flex; }
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background: rgba(35,39,47,0.98);
+                    position: absolute;
+                    top: 64px;
+                    left: 0;
+                    width: 100vw;
+                    z-index: 150;
+                    box-shadow: 0 2px 12px rgba(35,39,47,0.13);
+                }
+                .nav-links.open {
+                    display: flex;
+                }
+            }
+        </style>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="top-nav">
         <div class="nav-brand">Mohamed Noor</div>
-        <ul class="nav-links">
+        <div class="hamburger" id="hamburgerMenu" aria-label="Open navigation menu" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="mainNavLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#languages">Languages</a></li>
@@ -106,7 +149,7 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon">
                 <span>Email</span>
             </a>
-            <a class="social-card" href="sms:+4803321299">
+            <a class="social-card" href="sms:+1(480)-332-1299">
                 <img src="https://cdn-icons-png.flaticon.com/512/726/726623.png" alt="SMS" class="social-icon">
                 <span>Text Me</span>
             </a>
@@ -115,7 +158,26 @@
     </section>
     
     
-    <script src="scripts/darkmode.js"></script>
+        <script src="scripts/darkmode.js"></script>
+        <script>
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburgerMenu');
+            const navLinks = document.getElementById('mainNavLinks');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+            hamburger.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    navLinks.classList.toggle('open');
+                }
+            });
+            // Optional: close menu when a link is clicked (mobile UX)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                });
+            });
+        </script>
 </body>
 </html>
     <script src="scripts/darkmode.js"></script>
