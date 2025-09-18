@@ -1,3 +1,40 @@
+/* --- Cool Visual Enhancements --- */
+
+/* Animated gradient for university name */
+.asu-gradient {
+    background: linear-gradient(90deg, #ffc627, #8c1d40, #ffc627);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Button hover glow */
+button:hover {
+    box-shadow: 0 0 16px 2px #ffc62799, 0 4px 16px rgba(35,39,47,0.13);
+    filter: brightness(1.08);
+}
+
+/* Fade-in animation for sections */
+section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+section.visible {
+    opacity: 1;
+    transform: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 /* Responsive university info text */
 .university-info {
     text-align: center;
