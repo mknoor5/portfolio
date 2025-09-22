@@ -42,6 +42,14 @@
                     display: flex;
                 }
             }
+            /* Show project description on hover (desktop) or when .show-description is present (mobile) */
+            .project-card .project-description {
+                display: none;
+            }
+            .project-card:hover .project-description,
+            .project-card.show-description .project-description {
+                display: block;
+            }
         </style>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
@@ -183,6 +191,31 @@
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('open');
                 });
+            });
+            // Mobile tap-to-show for project cards
+            function isMobile() {
+                return window.matchMedia("(max-width: 700px)").matches;
+            }
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    if (isMobile()) {
+                        // If already open, close it
+                        if (card.classList.contains('show-description')) {
+                            card.classList.remove('show-description');
+                        } else {
+                            // Close others
+                            document.querySelectorAll('.project-card.show-description').forEach(c => c.classList.remove('show-description'));
+                            card.classList.add('show-description');
+                        }
+                        e.stopPropagation();
+                    }
+                });
+            });
+            // Close any open card when tapping outside
+            document.body.addEventListener('click', function () {
+                if (isMobile()) {
+                    document.querySelectorAll('.project-card.show-description').forEach(c => c.classList.remove('show-description'));
+                }
             });
         </script>
 </body>
