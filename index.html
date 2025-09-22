@@ -199,13 +199,13 @@
             document.querySelectorAll('.project-card').forEach(card => {
                 card.addEventListener('click', function (e) {
                     if (isMobile()) {
-                        // If already open, close it
+                        // Toggle only this card
+                        card.classList.toggle('show-description');
+                        // Close others if opening this one
                         if (card.classList.contains('show-description')) {
-                            card.classList.remove('show-description');
-                        } else {
-                            // Close others
-                            document.querySelectorAll('.project-card.show-description').forEach(c => c.classList.remove('show-description'));
-                            card.classList.add('show-description');
+                            document.querySelectorAll('.project-card').forEach(c => {
+                                if (c !== card) c.classList.remove('show-description');
+                            });
                         }
                         e.stopPropagation();
                     }
