@@ -67,6 +67,20 @@
         @media (max-width: 700px) {
             .desktop-only { display: none; }
             .mobile-only { display: inline; }
+            .nav-links {
+                display: none !important;
+                flex-direction: column;
+                background: rgba(35,39,47,0.98);
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100vw;
+                z-index: 150;
+                box-shadow: 0 2px 12px rgba(35,39,47,0.13);
+            }
+            .nav-links.open {
+                display: flex !important;
+            }
         }
         .hamburger {
             display: none;
@@ -89,20 +103,6 @@
         }
         @media (max-width: 700px) {
             .hamburger { display: flex; }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: rgba(35,39,47,0.98);
-                position: absolute;
-                top: 64px;
-                left: 0;
-                width: 100vw;
-                z-index: 150;
-                box-shadow: 0 2px 12px rgba(35,39,47,0.13);
-            }
-            .nav-links.open {
-                display: flex;
-            }
         }
         .project-card .project-description {
             display: none;
