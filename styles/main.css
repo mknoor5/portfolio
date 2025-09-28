@@ -1,4 +1,19 @@
 /* --- Cool Visual Enhancements --- */
+body {
+    overflow-x: hidden;
+}
+html {
+    overflow-x: hidden;
+}
+
+@media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+    html {
+        overflow-x: hidden;
+    }
+}
 
 /* Animated gradient for university name */
 .asu-gradient {
@@ -42,53 +57,37 @@ html {
     font-family: inherit;
 }
 .desktop-only {
-    display: inline;
+    font-size: 1em;
+    text-align: center;
 }
-.mobile-only {
-    display: none;
-}
-@media (max-width: 700px) {
-    .desktop-only {
-        display: none;
-    }
-    .mobile-only {
-        display: inline;
-        font-size: 1em;
-        text-align: center;
-    }
-    .university-info {
-        font-size: 1em;
-        text-align: center;
-    }
-}
+
 @media (max-width: 700px) {
     .hero-title {
-        font-size: 1.3em;
+        width: 100%;
         text-align: center;
+        font-size: 2em;
+        margin: 24px 0 12px 0;
     }
-/* Responsive Design for Mobile Accessibility */
-@media (max-width: 700px) {
     .top-nav {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         height: auto;
         padding: 0 0 8px 0;
         position: static;
-        box-shadow: 0 2px 12px rgba(35,39,47,0.07);
-        width: 100vw;
+        width: 100%;
     }
     .hamburger {
         position: absolute;
-        left: 10px;
+        left: 0;
         top: 12px;
         display: flex !important;
     }
     .nav-brand {
         flex: 1 1 auto;
         margin: 0 auto;
-        width: auto;
+        max-width: 100%;
         text-align: center;
         font-size: 1.3em;
         position: relative;
@@ -97,19 +96,19 @@ html {
     .nav-links {
         flex-direction: column;
         gap: 10px;
-        width: 100vw;
+        width: 100%;
         align-items: center;
-        justify-content: center;
+        max-width: 100%;
         position: absolute;
         left: 0;
         top: 64px;
     }
     .nav-links li {
-        width: 100vw;
+        width: 100%;
         text-align: center;
     }
     .nav-links li a {
-        width: 100vw;
+        width: 100%;
         padding: 10px 0;
         border-radius: 0;
         display: block;
@@ -118,10 +117,15 @@ html {
         padding-top: 80px;
         min-width: 0;
     }
-    section {
+    section,
+    .about,
+    .projects,
+    .contact {
+        width: 94vw;
+        max-width: 100%;
+        box-sizing: border-box;
         padding: 18px 4vw;
         margin: 18px auto;
-        max-width: 100vw;
         border-radius: 0;
         box-shadow: none;
         display: flex;
@@ -136,9 +140,9 @@ html {
         justify-content: center;
     }
     .project-card, .language-card, .social-card {
-        width: 100%;
+        width: 94vw;
+        max-width: 100%;
         min-width: 0;
-        max-width: 100vw;
         box-sizing: border-box;
         padding: 16px 10px;
         font-size: 1em;
@@ -148,16 +152,10 @@ html {
         width: 38px;
         height: 38px;
     }
-    .hero-title {
-        font-size: 2em;
-        margin: 24px 0 12px 0;
-        text-align: center;
-    }
     h1 {
         font-size: 1.6em;
         text-align: center;
     }
-}
 }
 /* SOCIALS SECTION */
 #socials {
@@ -239,7 +237,8 @@ h1 {
 
 section {
     padding: 32px 20px;
-    max-width: 900px;
+    width: 100%;
+    max-width: none;
     margin: 32px auto;
     background: #fff;
     border-radius: 24px;
