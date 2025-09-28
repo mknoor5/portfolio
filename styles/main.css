@@ -7,12 +7,23 @@ html {
 }
 
 @media (max-width: 700px) {
-    body {
-        overflow-x: hidden;
+    .dark-mode section,
+    .dark-mode .about,
+    .dark-mode .projects,
+    .dark-mode .contact {
+        width: 94vw;
+        max-width: 100%;
+        box-sizing: border-box;
     }
-    html {
-        overflow-x: hidden;
+    .dark-mode .project-card,
+    .dark-mode .language-card,
+    .dark-mode .social-card {
+        width: 94vw;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
+    /* Removed overflow-x: hidden from body and html to allow vertical scrolling on mobile */
 }
 
 /* Animated gradient for university name */
