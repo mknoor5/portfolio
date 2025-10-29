@@ -107,12 +107,16 @@ html {
     .nav-links {
         flex-direction: column;
         gap: 10px;
-        width: 100%;
-        align-items: center;
-        max-width: 100%;
+        /* Make the dropdown span the full viewport and center it */
         position: absolute;
         left: 0;
+        right: 0;
         top: 64px;
+        width: 100vw;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0 18px;
+        align-items: center;
     }
     .nav-links li {
         width: 100%;
@@ -120,9 +124,10 @@ html {
     }
     .nav-links li a {
         width: 100%;
-        padding: 10px 0;
+        padding: 12px 0;
         border-radius: 0;
         display: block;
+        text-align: center;
     }
     body {
         padding-top: 80px;
@@ -166,6 +171,13 @@ html {
     h1 {
         font-size: 1.6em;
         text-align: center;
+    }
+
+    /* Ensure vertical scrolling is allowed on mobile (prevent accidental scroll-lock) */
+    html, body {
+        height: auto !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
     }
 }
 /* SOCIALS SECTION */
