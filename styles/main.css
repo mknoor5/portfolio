@@ -264,8 +264,29 @@ section {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    /* Use auto-fit with a capped column width and center the grid so an incomplete last row
+       (for example a single 4th card) will appear centered instead of left-aligned. */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
     gap: 28px;
+    justify-content: center;
+}
+
+/* On larger screens, cap the grid's maximum width to the width of three columns
+   so an incomplete fourth item will be centered within the available area. */
+@media (min-width: 920px) {
+    .project-grid {
+        max-width: calc(3 * 320px + 2 * 28px); /* 3 columns + 2 gaps */
+        margin: 0 auto;
+    }
+    /* Force a 3-column layout at larger sizes so we can position a lone 4th item
+       into the center column when it's the last child. */
+    .project-grid {
+        grid-template-columns: repeat(3, 320px);
+    }
+    /* When there are exactly 4 projects, place the 4th in the middle column */
+    .project-grid .project-card:nth-child(4):last-child {
+        grid-column: 2 / 3;
+    }
 }
 
 .project-card {
