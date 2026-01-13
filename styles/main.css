@@ -149,6 +149,47 @@ html {
         align-items: center;
         justify-content: center;
     }
+    
+    /* Mobile-specific project grid styling */
+    .project-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        grid-auto-rows: auto !important;
+        align-items: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .project-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        padding: 16px !important;
+        border-radius: 12px !important;
+    }
+    
+    .project-links {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    
+    .project-links a {
+        font-size: 0.95em !important;
+        padding: 6px 10px !important;
+    }
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 18px 4vw;
+        margin: 18px auto;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
     .project-grid, .languages-grid, .socials-grid {
         flex-direction: column !important;
         gap: 18px;
@@ -277,18 +318,19 @@ section {
 .project-grid {
     display: grid;
     grid-template-columns: 1fr; /* default: single column on small screens */
-    gap: 28px;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     align-items: stretch;
-    /* Fixed row height so outer card height never changes on hover (prevents flicker) */
-    grid-auto-rows: 360px;
+    /* Allow auto height on mobile for better responsiveness */
+    grid-auto-rows: auto;
 }
 
 /* Tablet: two columns */
 @media (min-width: 700px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
     }
 }
 
@@ -296,6 +338,9 @@ section {
 @media (min-width: 1100px) {
     .project-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        /* Set fixed row height for consistent desktop layout */
+        grid-auto-rows: 360px;
     }
 }
 
